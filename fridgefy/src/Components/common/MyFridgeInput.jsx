@@ -14,10 +14,11 @@ function MyFridgeInput() {
 
 	const handleAddToFridge = () => {
 		const ingredientValue = document.querySelector("input").value;
+		const fridgeArray = Object.keys(fridge).map((key) => fridge[key].name);
 		if (ingredientValue) {
-			if (!fridge.includes(ingredientValue) && ingredients.includes(ingredientValue)) {
+			if (!fridgeArray.includes(ingredientValue) && ingredients.includes(ingredientValue)) {
 				addIngredientToFridge(ingredientValue, false);
-			} else if (fridge.includes(ingredientValue)) {
+			} else if (fridgeArray.includes(ingredientValue)) {
 				alert("Ingredient already in the fridge");
 				clearInput();
 			}
